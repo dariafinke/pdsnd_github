@@ -225,6 +225,7 @@ def raw_data(df):
     print("\nRequesting user input for raw data display?")
     
     user_input = input('Would you like to display first 5 records of raw data (yes/y or no/n)? ').lower()
+    # While loop to prompt user request 5 lines of raw data at a time
     
     if user_input in ("yes", "y"):
         i = 0
@@ -236,7 +237,7 @@ def raw_data(df):
                 if add_data not in ("yes", "y"):
                     print("\nNot displaying further raw data.")
                     break
-
+# Message to show whenever the raw data comes to an end 
         else:
             print("\nNo data entires left.\n")
            
@@ -247,6 +248,7 @@ def raw_data(df):
     else:
         print("\nInput no recognized. Please type in 'yes' or 'no'.")
         
+    # next While loop to trigger an exit or restart
     while True:
         restart = input('\nWould you like to restart? Enter yes/y or no/n. ').lower()
         if restart in ('yes', 'y'):
