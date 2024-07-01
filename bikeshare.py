@@ -6,6 +6,8 @@ CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
 
+              #CSV files will not be provided on Github
+
 def get_filters():
     """
     Asks user to specify a city, month and day to analyze.
@@ -26,7 +28,7 @@ def get_filters():
             city = name_city
             break
         else:
-            print ('The entry is not recognized. Please enter one of the tree cities: Chicago, Washinton, or New York City.')
+            print ('The entry is not recognized. Please enter one of the tree cities: Chicago, Washinton, or New York City. You need to type in FULL names')
 
   # Get user input for month (all, january, february, ... , june)
     months = ['all', 'january', 'february', 'march', 'april', 'may', 'june']
@@ -59,7 +61,7 @@ print(f'Day specified: {day}')
 
 def load_data(city, month, day):
     """
-    The code used is based on Practice SOlution 3 from this project. 
+    The code used is based on Practice Solution 3 from this project. 
     Loads data for the specified city and filters by month and day if applicable.
 
     Args:
@@ -144,15 +146,15 @@ def station_stats(df):
                   
     # display most commonly used start station
     popular_start = start_station.mode()[0]
-    print("The most commonly used start station is ", popular_start)
+    print("\nThe most commonly used start station is ", popular_start)
 
     # display most commonly used end station
     popular_end = end_station.mode()[0]
-    print("The most commonly used end station is ", popular_end)
+    print("\nThe most commonly used end station is ", popular_end)
     # display most frequent combination of start station and end station trip
     df['trip'] = df['Start Station'] + " to " + df['End Station']
     popular_trip = df['trip'].mode()[0]
-    print("The most frequent trip route is ", popular_trip)
+    print("\nThe most frequent trip route is ", popular_trip)
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -167,11 +169,11 @@ def trip_duration_stats(df):
 
     # display total travel time
     total_duration = df['Trip Duration'].sum()
-    print("Total travel time amounted to ", total_duration)                 
+    print("\nTotal travel time amounted to ", total_duration)                 
 
     # display mean travel time
     average_duration = df['Trip Duration'].mean()
-    print("Average travel time was ", average_duration)   
+    print("\nAverage travel time was ", average_duration)   
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -191,12 +193,12 @@ def user_stats(df):
 
     # Display counts of user types
     user_types = df['User Type'].value_counts()
-    print("The breakdown of users by type was as follows: \n ", user_types)
+    print("\nThe breakdown of users by type was as follows: \n ", user_types)
 
     # Display counts of gender
     if 'Gender' in df.columns:
         user_genders  = df['Gender'].value_counts()
-        print("The breakdown of users by gender was as follows: \n", user_genders)
+        print("\nThe breakdown of users by gender was as follows: \n", user_genders)
     else:
         print ("\nNo 'Gender' related information available.")
 
